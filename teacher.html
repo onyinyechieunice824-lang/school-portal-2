@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Teacher Dashboard</h2>
+
+<div class="card">
+    <h3>Enter Scores</h3>
+    <input id="r_student_id" placeholder="Student ID">
+    <input id="r_subject" placeholder="Subject">
+    <input id="r_ca1" placeholder="CA1 Score">
+    <input id="r_ca2" placeholder="CA2 Score">
+    <input id="r_exam" placeholder="Exam Score">
+    <button onclick="saveScore()">Save Score</button>
+</div>
+
+<div class="card">
+    <h3>Create CBT Questions</h3>
+    <input id="c_subject" placeholder="Subject">
+    <input id="c_class" placeholder="Class">
+    <textarea id="c_questions" placeholder="JSON Questions"></textarea>
+    <button onclick="createCBT()">Create CBT</button>
+</div>
+
+<p id="msg"></p>
+
+<script src="script.js"></script>
+</body>
+</html>

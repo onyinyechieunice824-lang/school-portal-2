@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<div class="card">
+    <h3>Create Teacher</h3>
+    <input id="t_surname" placeholder="Surname">
+    <input id="t_othernames" placeholder="Other Names">
+    <input id="t_email" placeholder="Email">
+    <button onclick="createTeacher()">Create Teacher</button>
+</div>
+
+<div class="card">
+    <h3>Create Student</h3>
+    <input id="s_firstname" placeholder="Firstname">
+    <input id="s_surname" placeholder="Surname">
+    <input id="s_class" placeholder="Class (e.g SS1)">
+    <button onclick="createStudent()">Create Student</button>
+</div>
+
+<p id="msg"></p>
+
+<script src="script.js"></script>
+</body>
+</html>

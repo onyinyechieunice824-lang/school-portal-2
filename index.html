@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SchoolPortal - Modern School Management System</title>
+
+  <!-- Feather icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="app" class="app">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="url(#grad1)"/>
+            <path d="M20 12L28 16V24C28 28 24 30 20 30C16 30 12 28 12 24V16L20 12Z" fill="white"/>
+            <defs>
+              <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <h1>SchoolPortal</h1>
+          <p class="muted">Smart Management</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button data-view="home" class="nav-link active">
+          <span data-feather="home"></span> 
+          <span>Dashboard</span>
+        </button>
+
+        <div class="nav-section">Account</div>
+        <button data-view="login" class="nav-link">
+          <span data-feather="log-in"></span> 
+          <span>Sign In</span>
+        </button>
+        <button data-view="admin" class="nav-link">
+          <span data-feather="shield"></span> 
+          <span>Admin Panel</span>
+        </button>
+        <button data-view="teacher" class="nav-link">
+          <span data-feather="book-open"></span> 
+          <span>Teacher</span>
+        </button>
+        <button data-view="student" class="nav-link">
+          <span data-feather="user"></span> 
+          <span>Student</span>
+        </button>
+        <button data-view="parent" class="nav-link">
+          <span data-feather="users"></span> 
+          <span>Parent</span>
+        </button>
+
+        <div class="nav-section">Academic</div>
+        <button data-view="timetable" class="nav-link">
+          <span data-feather="calendar"></span> 
+          <span>Timetable</span>
+        </button>
+        <button data-view="assignments" class="nav-link">
+          <span data-feather="file-text"></span> 
+          <span>Assignments</span>
+        </button>
+        <button data-view="notes" class="nav-link">
+          <span data-feather="book"></span> 
+          <span>Lesson Notes</span>
+        </button>
+        <button data-view="cbt" class="nav-link">
+          <span data-feather="edit-3"></span> 
+          <span>CBT Exams</span>
+        </button>
+        <button data-view="reports" class="nav-link">
+          <span data-feather="award"></span> 
+          <span>Report Cards</span>
+        </button>
+        <button data-view="payments" class="nav-link">
+          <span data-feather="credit-card"></span> 
+          <span>Fee Payment</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="btn-logout" class="btn-logout hidden">
+          <span data-feather="log-out"></span> 
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main">
+      <div class="main-header">
+        <div class="header-left">
+          <h2 id="page-title">Dashboard</h2>
+          <p class="muted" id="page-subtitle">Welcome to SchoolPortal</p>
+        </div>
+        <div class="header-right">
+          <div class="user-profile hidden" id="user-profile">
+            <div class="avatar">
+              <span data-feather="user"></span>
+            </div>
+            <div class="user-info">
+              <span class="user-name" id="user-name">Guest</span>
+              <span class="user-role muted" id="user-role">Not logged in</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <!-- HOME / DASHBOARD -->
+        <section id="view-home" class="view active">
+          <div class="hero">
+            <!-- ========================================
+                 YOUR NIGERIAN SCHOOL IMAGES SLIDER
+                 Make sure images are saved in "images" folder
+                 ======================================== -->
+            <div class="hero-slider">
+              <!-- Image 1: Physics/Chemistry Laboratory -->
+              <div class="hero-slide active" style="background-image: url('images/image1.jpg');"></div>
+              
+              <!-- Image 2: Classroom & Learning Activities -->
+              <div class="hero-slide" style="background-image: url('images/image2.jpg');"></div>
+              
+              <!-- Image 3: Science Lab & Technology -->
+              <div class="hero-slide" style="background-image: url('images/image3.jpg');"></div>
+            </div>
+            <!-- ======================================== -->
+
+            <!-- Hero Content -->
+            <div class="hero-content">
+              <h1>Modern School Management</h1>
+              <p>Streamline academics with our comprehensive platform - manage grades, CBT exams, lesson notes, fee payments, and generate professional report cards.</p>
+              <div class="hero-actions">
+                <button class="btn btn-primary btn-lg" data-view-btn="login">
+                  Get Started
+                  <span data-feather="arrow-right"></span>
+                </button>
+                <button class="btn btn-outline btn-lg" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+                  Explore Features
+                </button>
+              </div>
+            </div>
+
+            <!-- Hero Image with Floating Cards -->
+            <div class="hero-image">
+              <div class="floating-card card-1">
+                <span data-feather="check-circle"></span>
+                <span>Easy to Use</span>
+              </div>
+              <div class="floating-card card-2">
+                <span data-feather="shield"></span>
+                <span>Secure & Safe</span>
+              </div>
+              <div class="floating-card card-3">
+                <span data-feather="trending-up"></span>
+                <span>Track Progress</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="features" class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <span data-feather="award"></span>
+              </div>
+              <h3>Professional Report Cards</h3>
+              <p>Generate comprehensive report cards with Cognitive, Affective & Psychomotor domains following WAEC grading standards.</p>
+              <ul class="feature-list">
+                <li><span data-feather="check"></span> WAEC grading system</li>
+                <li><span data-feather="check"></span> Printable format</li>
+                <li><span data-feather="check"></span> Multiple domains</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <span data-feather="edit-3"></span>
+              </div>
+              <h3>Computer-Based Testing</h3>
+              <p>Teachers create CBT exams, students take tests online and receive instant scores with detailed performance analytics.</p>
+              <ul class="feature-list">
+                <li><span data-feather="check"></span> Instant grading</li>
+                <li><span data-feather="check"></span> Detailed analytics</li>
+                <li><span data-feather="check"></span> Question bank</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <span data-feather="credit-card"></span>
+              </div>
+              <h3>Online Fee Management</h3>
+              <p>Integrate with popular payment gateways to receive school fees securely and maintain digital financial records.</p>
+              <ul class="feature-list">
+                <li><span data-feather="check"></span> Multiple payment options</li>
+                <li><span data-feather="check"></span> Automated receipts</li>
+                <li><span data-feather="check"></span> Payment history</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <span data-feather="book"></span>
+              </div>
+              <h3>Digital Lesson Notes</h3>
+              <p>Teachers upload and organize lesson notes by subject and class, accessible to students anytime, anywhere.</p>
+              <ul class="feature-list">
+                <li><span data-feather="check"></span> Organized by class</li>
+                <li><span data-feather="check"></span> Easy access</li>
+                <li><span data-feather="check"></span> Multi-format support</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                <span data-feather="calendar"></span>
+              </div>
+              <h3>Smart Timetable</h3>
+              <p>Create and manage class timetables with automatic conflict detection and easy modifications.</p>
+              <ul class="feature-list">
+                <li><span data-feather="check"></span> Conflict detection</li>
+                <li><span data-feather="check"></span> Easy updates</li>
+                <li><span data-feather="check"></span> Mobile accessible</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <span data-feather="file-text"></span>
+              </div>
+              <h3>Assignment Tracking</h3>
+              <p>Track assignments from creation to submission with automated reminders and grading tools.</p>
+              <ul class="feature-list">
+                <li><span data-feather="check"></span> Due date reminders</li>
+                <li><span data-feather="check"></span> Online submission</li>
+                <li><span data-feather="check"></span> Progress tracking</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- LOGIN -->
+        <section id="view-login" class="view">
+          <div class="auth-container">
+            <div class="auth-card">
+              <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p class="muted">Sign in to access your account</p>
+              </div>
+
+              <form class="auth-form" onsubmit="return false;">
+                <div class="form-group">
+                  <label>Select Role</label>
+                  <select id="login-role" class="form-control">
+                    <option value="admin">Admin</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                    <option value="parent">Parent</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Username or Email</label>
+                  <input id="login-username" class="form-control" placeholder="Enter your username" />
+                </div>
+
+                <div class="form-group">
+                  <label>Password</label>
+                  <input id="login-password" type="password" class="form-control" placeholder="Enter your password" />
+                </div>
+
+                <div class="form-actions">
+                  <button id="btn-login" class="btn btn-primary btn-block">
+                    Sign In
+                    <span data-feather="arrow-right"></span>
+                  </button>
+                  <button id="btn-demo" class="btn btn-outline btn-block">
+                    Load Demo Credentials
+                  </button>
+                </div>
+
+                <div id="login-msg" class="message"></div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADMIN -->
+        <section id="view-admin" class="view">
+          <div class="section-header">
+            <h2>Admin Panel</h2>
+            <p class="muted">Create and manage school accounts</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <h3>Create Teacher Account</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Surname *</label>
+                  <input id="admin-teacher-surname" class="form-control" placeholder="Enter surname" />
+                </div>
+                <div class="form-group">
+                  <label>Other Names *</label>
+                  <input id="admin-teacher-other" class="form-control" placeholder="Enter other names" />
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input id="admin-teacher-email" type="email" class="form-control" placeholder="teacher@school.com" />
+                </div>
+                <div class="form-group">
+                  <label>Assign Class</label>
+                  <select id="admin-teacher-class" class="form-control">
+                    <option value="">Select Class (Optional)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Subject IDs (comma-separated)</label>
+                  <input id="admin-teacher-subjects" class="form-control" placeholder="e.g., 1, 2, 3" />
+                </div>
+                <button id="admin-create-teacher" class="btn btn-primary">
+                  <span data-feather="plus"></span>
+                  Create Teacher
+                </button>
+                <div id="admin-create-teacher-msg" class="message"></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Create Student Account</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>First Name *</label>
+                  <input id="admin-student-first" class="form-control" placeholder="Enter first name" />
+                </div>
+                <div class="form-group">
+                  <label>Surname *</label>
+                  <input id="admin-student-surname" class="form-control" placeholder="Enter surname" />
+                </div>
+                <div class="form-group">
+                  <label>Class *</label>
+                  <select id="admin-student-class" class="form-control">
+                    <option value="">Select Class</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Gender *</label>
+                  <select id="admin-student-gender" class="form-control">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                  </select>
+                </div>
+                <button id="admin-create-student" class="btn btn-primary">
+                  <span data-feather="plus"></span>
+                  Create Student
+                </button>
+                <div id="admin-create-student-msg" class="message"></div>
+                <div class="info-box">
+                  <span data-feather="info"></span>
+                  <span>Default password for students: <strong>student</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TEACHER -->
+        <section id="view-teacher" class="view">
+          <div class="dashboard-welcome">
+            <div class="welcome-icon">
+              <span data-feather="book-open"></span>
+            </div>
+            <div>
+              <h2>Teacher Dashboard</h2>
+              <p class="muted">Manage your classes, create assignments, upload notes, and conduct CBT exams.</p>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <button class="action-card" data-view-btn="timetable">
+              <span data-feather="calendar"></span>
+              <span>View Timetable</span>
+            </button>
+            <button class="action-card" data-view-btn="assignments">
+              <span data-feather="file-text"></span>
+              <span>Assignments</span>
+            </button>
+            <button class="action-card" data-view-btn="notes">
+              <span data-feather="book"></span>
+              <span>Lesson Notes</span>
+            </button>
+            <button class="action-card" data-view-btn="cbt">
+              <span data-feather="edit-3"></span>
+              <span>CBT Exams</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- STUDENT -->
+        <section id="view-student" class="view">
+          <div class="dashboard-welcome">
+            <div class="welcome-icon">
+              <span data-feather="user"></span>
+            </div>
+            <div>
+              <h2>Student Dashboard</h2>
+              <p class="muted">Access your timetable, assignments, notes, take CBT exams, and view report cards.</p>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <button class="action-card" data-view-btn="timetable">
+              <span data-feather="calendar"></span>
+              <span>My Timetable</span>
+            </button>
+            <button class="action-card" data-view-btn="assignments">
+              <span data-feather="file-text"></span>
+              <span>Assignments</span>
+            </button>
+            <button class="action-card" data-view-btn="notes">
+              <span data-feather="book"></span>
+              <span>Lesson Notes</span>
+            </button>
+            <button class="action-card" data-view-btn="cbt">
+              <span data-feather="edit-3"></span>
+              <span>Take CBT</span>
+            </button>
+            <button class="action-card" data-view-btn="reports">
+              <span data-feather="award"></span>
+              <span>Report Cards</span>
+            </button>
+            <button class="action-card" data-view-btn="payments">
+              <span data-feather="credit-card"></span>
+              <span>Pay Fees</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- PARENT -->
+        <section id="view-parent" class="view">
+          <div class="dashboard-welcome">
+            <div class="welcome-icon">
+              <span data-feather="users"></span>
+            </div>
+            <div>
+              <h2>Parent Dashboard</h2>
+              <p class="muted">Monitor your child's academic progress, view report cards, and manage fee payments.</p>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <button class="action-card" data-view-btn="reports">
+              <span data-feather="award"></span>
+              <span>Report Cards</span>
+            </button>
+            <button class="action-card" data-view-btn="payments">
+              <span data-feather="credit-card"></span>
+              <span>Fee Payments</span>
+            </button>
+            <button class="action-card" data-view-btn="timetable">
+              <span data-feather="calendar"></span>
+              <span>Timetable</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- TIMETABLE -->
+        <section id="view-timetable" class="view">
+          <div class="card">
+            <div class="card-header">
+              <h3>Class Timetable</h3>
+              <p class="muted">View class schedules and periods</p>
+            </div>
+            <div class="card-body">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Select Class</label>
+                  <select id="timetable-class" class="form-control">
+                    <option value="">Choose a class</option>
+                  </select>
+                </div>
+                <button id="timetable-load" class="btn btn-primary">
+                  <span data-feather="search"></span>
+                  Load Timetable
+                </button>
+              </div>
+              <div id="timetable-msg" class="message"></div>
+              <div id="timetable-display" class="data-display"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ASSIGNMENTS -->
+        <section id="view-assignments" class="view">
+          <div class="card">
+            <div class="card-header">
+              <h3>Assignments</h3>
+              <p class="muted">View and manage class assignments</p>
+            </div>
+            <div class="card-body">
+              <button id="assign-load" class="btn btn-primary">
+                <span data-feather="refresh-cw"></span>
+                Load All Assignments
+              </button>
+              <div id="assign-msg" class="message"></div>
+              <div id="assign-list" class="data-display"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOTES -->
+        <section id="view-notes" class="view">
+          <div class="card">
+            <div class="card-header">
+              <h3>Lesson Notes</h3>
+              <p class="muted">Access teaching materials and notes</p>
+            </div>
+            <div class="card-body">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Class</label>
+                  <select id="notes-class" class="form-control">
+                    <option value="">Select Class</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Subject</label>
+                  <select id="notes-subject" class="form-control">
+                    <option value="">Select Subject</option>
+                  </select>
+                </div>
+                <button id="notes-load" class="btn btn-primary">
+                  <span data-feather="search"></span>
+                  Load Notes
+                </button>
+              </div>
+              <div id="notes-msg" class="message"></div>
+              <div id="notes-list" class="data-display"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CBT -->
+        <section id="view-cbt" class="view">
+          <div class="card">
+            <div class="card-header">
+              <h3>CBT Exams</h3>
+              <p class="muted">Computer-Based Testing system</p>
+            </div>
+            <div class="card-body">
+              <button id="cbt-load" class="btn btn-primary">
+                <span data-feather="refresh-cw"></span>
+                Load Available CBTs
+              </button>
+              <div id="cbt-msg" class="message"></div>
+              <div id="cbt-list" class="data-display"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REPORTS -->
+        <section id="view-reports" class="view">
+          <div class="card">
+            <div class="card-header">
+              <h3>Report Cards</h3>
+              <p class="muted">View and download student report cards</p>
+            </div>
+            <div class="card-body">
+              <button id="reports-load" class="btn btn-primary">
+                <span data-feather="refresh-cw"></span>
+                Load Reports
+              </button>
+              <div id="reports-msg" class="message"></div>
+              <div id="reports-list" class="data-display"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PAYMENTS -->
+        <section id="view-payments" class="view">
+          <div class="card">
+            <div class="card-header">
+              <h3>Fee Payment</h3>
+              <p class="muted">Secure online payment for school fees</p>
+            </div>
+            <div class="card-body">
+              <div class="info-box">
+                <span data-feather="info"></span>
+                <span>We support Flutterwave, Paystack, and Stripe payment gateways</span>
+              </div>
+              <div class="form-group">
+                <label>Student Username</label>
+                <input id="payments-student" class="form-control" placeholder="e.g., 0002" />
+              </div>
+              <div class="form-group">
+                <label>Amount (₦)</label>
+                <input id="payments-amount" type="number" class="form-control" placeholder="e.g., 50000" />
+              </div>
+              <button id="payments-pay" class="btn btn-primary btn-lg">
+                <span data-feather="credit-card"></span>
+                Initiate Payment
+              </button>
+              <div id="payments-msg" class="message"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    feather.replace();
+    // Re-render feather icons when views change
+    document.addEventListener('click', () => {
+      setTimeout(() => feather.replace(), 100);
+    });
+  </script>
+</body>
+</html>
