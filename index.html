@@ -15,9 +15,119 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Your existing HTML content as posted above -->
-  <!-- ... No changes needed ... -->
-  <!-- (Full HTML skipped for brevity since IDs are already correct.) -->
+  <div id="app" class="app">
+
+    <!-- Sidebar Navigation ... unchanged ... -->
+    <aside class="sidebar">
+      <!-- ... Sidebar code unchanged ... -->
+    </aside>
+    
+    <main class="main">
+      <div class="main-header">
+        <div class="header-left">
+          <h2 id="page-title">Dashboard</h2>
+          <p class="muted" id="page-subtitle">Welcome to SchoolPortal</p>
+        </div>
+        <div class="header-right">
+          <div class="user-profile hidden" id="user-profile">
+            <div class="avatar">
+              <span data-feather="user"></span>
+            </div>
+            <div class="user-info">
+              <span class="user-name" id="user-name">Guest</span>
+              <span class="user-role muted" id="user-role">Not logged in</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <!-- ======= UPDATED LANDING PAGE SECTION ======= -->
+        <section id="view-home" class="view active">
+          <div class="hero" style="padding: 32px 0;">
+            <!-- Hero Image Slider (demo images should exist, else will fallback to background color) -->
+            <div class="hero-slider" style="min-height:180px; margin-bottom:24px;">
+              <div class="hero-slide active" style="background-image: url('images/image1.jpg'); background-color: #eee; min-height:180px;"></div>
+              <div class="hero-slide" style="background-image: url('images/image2.jpg'); background-color: #efefef; min-height:180px;"></div>
+              <div class="hero-slide" style="background-image: url('images/image3.jpg'); background-color: #e5e5e5; min-height:180px;"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="hero-content" style="max-width:450px; margin:auto; text-align:center;">
+              <h1 style="margin-bottom:12px;">Modern School Management</h1>
+              <p style="margin-bottom:20px; color:#555;">
+                Streamline academics with our comprehensive platform.<br>
+                Manage grades, CBT exams, lesson notes, fee payments, generate report cards, and more.
+              </p>
+              <div class="hero-actions" style="margin-bottom:22px;">
+                <button class="btn btn-primary btn-lg" data-view-btn="login">
+                  Get Started
+                  <span data-feather="arrow-right"></span>
+                </button>
+                <button class="btn btn-outline btn-lg" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+                  Explore Features
+                </button>
+              </div>
+            </div>
+
+            <!-- Demo Dropdowns: USER CAN SELECT CLASS AND SUBJECT -->
+            <div style="margin:36px auto 0 auto; max-width:460px; padding:20px; background:#fafbfc; border-radius:10px; box-shadow:0 2px 12px #eee;">
+              <h3 style="text-align:left; margin-bottom:10px; color:#667eea;">Quick Academic Access</h3>
+              <div style="display:flex; gap:16px;">
+                <div style="flex:1;">
+                  <label for="view-home-demo-class" style="font-weight:500; font-size:14px;">Class</label><br>
+                  <select id="view-home-demo-class" style="width:100%; padding:8px 10px; border-radius:6px; margin-top:4px;">
+                    <option value="">Select Class</option>
+                    <option value="1">JSS 1</option>
+                    <option value="2">JSS 2</option>
+                    <option value="3">SSS 1</option>
+                    <option value="4">SSS 2</option>
+                  </select>
+                </div>
+                <div style="flex:1;">
+                  <label for="view-home-demo-subject" style="font-weight:500; font-size:14px;">Subject</label><br>
+                  <select id="view-home-demo-subject" style="width:100%; padding:8px 10px; border-radius:6px; margin-top:4px;">
+                    <option value="">Select Subject</option>
+                    <option value="1">Mathematics</option>
+                    <option value="2">English</option>
+                    <option value="3">Basic Science</option>
+                    <option value="4">Biology</option>
+                    <option value="5">Chemistry</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- End Demo Dropdowns -->
+
+            <!-- Floating Cards -->
+            <div class="hero-image" style="margin:32px auto 0 auto; max-width:600px;">
+              <div class="floating-card card-1" style="display:inline-block; background:#fff; border-radius:8px; padding:14px 26px; margin:8px;">
+                <span data-feather="check-circle"></span>
+                <span>Easy to Use</span>
+              </div>
+              <div class="floating-card card-2" style="display:inline-block; background:#fff; border-radius:8px; padding:14px 26px; margin:8px;">
+                <span data-feather="shield"></span>
+                <span>Secure & Safe</span>
+              </div>
+              <div class="floating-card card-3" style="display:inline-block; background:#fff; border-radius:8px; padding:14px 26px; margin:8px;">
+                <span data-feather="trending-up"></span>
+                <span>Track Progress</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Grid Section as before -->
+          <div id="features" class="features-grid" style="margin-top:26px">
+            <!-- You can copy your existing feature cards here -->
+          </div>
+        </section>
+        <!-- ======= END LANDING PAGE SECTION ======= -->
+
+        <!-- Other views (LOGIN, ADMIN, TEACHER, STUDENT, PARENT, TIMETABLE, ASSIGNMENTS, NOTES, CBT, REPORTS, PAYMENTS) remain unchanged -->
+        <!-- ... -->
+      </div>
+    </main>
+  </div>
 
   <script>
     feather.replace();
